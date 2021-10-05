@@ -1,9 +1,12 @@
 # DB-backup
-PHP utility for backup MySQL databases.
+PHP application for backup MySQL databases.
+===========================================
 
-This application is tested with PHP 7.4.
+This application is tested with PHP 7.3.
 
-Make your username and password to this application in config.php.
+Create a username and password for this application in the file "config.php".
 
 
 ![alt text](https://github.com/kissarmy/DB-backup/blob/main/img/printscreen.png?raw=true)
+
+Application is free for personal and comercial use.
