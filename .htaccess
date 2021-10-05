@@ -1,0 +1,12 @@
+DirectoryIndex index.php
+Options -Indexes
+allow from all
+
+# Redirect from HTTP to HTTPS
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule (.*) https://app.domain.com/something
+
+# ErrorDocument 403 https://app.domain.com/something
+# ErrorDocument 404 https://app.domain.com/something
+# ErrorDocument 410 https://app.domain.com/something
