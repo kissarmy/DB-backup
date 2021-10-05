@@ -1,6 +1,5 @@
 # DB-backup
 PHP application for backup MySQL databases.
-===========================================
 
 This application is tested with PHP 7.3.
 
