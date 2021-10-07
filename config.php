@@ -11,7 +11,7 @@ $config["session_prefix"]="db_backup_";
 
 //log in
 $config["login_username"]="username";
-$config["login_password"]="password"; //password in MD5 - Text to MD5 (convertor): https://oubrecht.com/nastroje_md5.php
+$config["login_password"]="password";
 
 //reCaptcha v3 - https://www.google.com/recaptcha
 $config["recaptcha_enable"]="0"; // 1= zapnuto, 0=vypnuto

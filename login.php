@@ -20,7 +20,7 @@ if(isset($_POST["username"]) AND isset($_POST["password"])){
 		if($response_captcha['success'] == false){$_SESSION[$config["session_prefix"]."stav"][2]="CHYBA: reCaptcha podvod"; exit(redirect("login.php"));}; // recaptcha error
 	;};
 
-    if($_POST["username"]==$config["login_username"] AND md5($_POST["password"])==$config["login_password"]){
+    if($_POST["username"]==$config["login_username"] AND $_POST["password"]==$config["login_password"]){
         $_SESSION[$config["session_prefix"]."login"]="1";
         exit(redirect("./"));
     ;} else {
