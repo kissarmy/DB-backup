@@ -28,7 +28,8 @@ foreach($db_array as $db){
     //make backup
     if($i>$config["cron_db_count"]){echo $db["db"]." - skiped (will be make backeup in the next step)<BR>\n"; continue;};//skip nex backup
     $file = backupDbTables($db["server"], $db["username"], $db["password"], $db["db"], "*");
-    if($file!=NULL){$state[]=$hash;};
+    //if($file!=NULL){$state[]=$hash;};
+    $state[]=$hash;
     echo $db["db"]." - backuped<BR>\n";
     $i++;
 ;};
