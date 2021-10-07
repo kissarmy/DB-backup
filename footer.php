@@ -9,6 +9,7 @@ echo "
 </div>
 
 <script async src='sorttable.js'></script>
+<script src='functions.js?v=".filemtime("functions.js")."'></script>
 </body></html>";
 
 ;?>

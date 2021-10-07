@@ -50,13 +50,18 @@ function sqlFileToZip($file){
 
 function listBackupsPerDb($server, $dbName){
     $files="";
+    $i=0;
     $server = str_replace(".", "-", str_replace(" ", "", $server));
-    foreach (glob("backup/*_".$server."_".$dbName."_*.*") as $file) {
+    foreach (array_reverse(glob("backup/*_".$server."_".$dbName."_*.*")) as $file) {
+        if($i==1){$files.="<div title='Show/Hide other files' onclick='showHide(\"files_".md5($server.$dbName)."\");' style='cursor:pointer;font-size:9px;'>Show/Hide other files</div><div style='display:none;' id='files_".md5($server.$dbName)."'>";};
+
         $files.=date("Y.m.d H:i:s", filemtime($file))." <small><small><i>(".getFileSize($file).")</i></small></small>
         <a href='$file' title='Download file'><img src='img/download.png' class='icon' /></a>
         <a href='?delete_file=".urlencode($file)."' title='Delete file' onclick='return confirm(\"Delete file: $file?\")'><img src='img/delete.png' class='icon' /></a>
         <BR>";
+        $i++;
     ;};
+    if($i>=1){$files.="<div>";};
     return $files;
 ;};
 
