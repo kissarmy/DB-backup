@@ -65,9 +65,11 @@ if($_SESSION[$config["session_prefix"]."stav"]!=null){
 
 echo "<div class='full_page'>
 
-<div class='header'><a href='./'><h1>DB backup</h1></a>
-";
-if($_SESSION[$config["session_prefix"]."login"]=="1"){echo "<a href='login.php?logout=1' title='Log out' onclick='return confirm(\"Really log out?\")'><img src='img/close2.png' alt='Log out' class='icon' style='float:right;' /></a>";};
+<div class='header'><a href='./'><h1>DB backup</h1></a>";
+if($_SESSION[$config["session_prefix"]."login"]=="1"){
+  echo "<a href='login.php?logout=1' title='Log out' onclick='return confirm(\"Really log out?\")'><img src='img/close2.png' alt='Log out' class='icon' style='float:right;' /></a>";
+  echo "<p>Data is stored for ".$config["backup_max_days"]." days.</p>";
+;};
 echo "</div>
 
 <div class='master_content'>
