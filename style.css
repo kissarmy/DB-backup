@@ -199,6 +199,7 @@ input[type='submit'], button, .btn{
     box-shadow: 0 10px 10px -5px black;
     font-weight: bold;
     text-transform: uppercase;
+    border-radius: 2px;
 }
 
 h1.green, h2.green, h3.green {
@@ -213,9 +214,6 @@ input[type='submit']:hover, button:hover, .btn:hover{
     
     background-color: #e49f28;
 }
-
-
-
 
 .close{
     background-color: black !important;

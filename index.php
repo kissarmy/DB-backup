@@ -146,7 +146,7 @@ if($_GET["form"]=="new" OR $_GET["form"]=="edit"){
     <input type='hidden' name='form' value='1'/>
     <input type='hidden' name='id' value='$_GET[id]'/>
     <input type='submit' value='Save' />
-    <a href='./' class='btn close'>Close</a>
+    <button onclick='document.location.href=\"./\"; return false;' class='close'>Close</button>
   </form>
   ";
 ;};
