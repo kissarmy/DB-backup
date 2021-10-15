@@ -53,11 +53,11 @@ function listBackupsPerDb($server, $dbName){
     $i=0;
     $server = str_replace(".", "-", str_replace(" ", "", $server));
     foreach (array_reverse(glob("backup/*_".$server."_".$dbName."_*.*")) as $file) {
-        if($i==1){$files.="<div title='Show/Hide other files' onclick='showHide(\"files_".md5($server.$dbName)."\");' style='cursor:pointer;font-size:9px;'>Show/Hide other files</div><div style='display:none;' id='files_".md5($server.$dbName)."'>";};
+        if($i==1){$files.="<div title='Show/Hide other files' onclick='showHide(\"files_".md5($server.$dbName)."\");' class='show_hide'>Show/Hide other files</div><div style='display:none;' id='files_".md5($server.$dbName)."'>";};
 
-        $files.=date("Y.m.d H:i:s", filemtime($file))." <small><small><i>(".getFileSize($file).")</i></small></small>
+        $files.="<div class='backup_item'>".date("Y.m.d H:i:s", filemtime($file))." <small><small><i>(".getFileSize($file).")</i></small></small>
         <a href='$file' title='Download file'><img src='img/download.png' class='icon' /></a>
-        <a href='?delete_file=".urlencode($file)."' title='Delete file' onclick='return confirm(\"Delete file: $file?\")'><img src='img/delete.png' class='icon' /></a>
+        <a href='?delete_file=".urlencode($file)."' title='Delete file' onclick='return confirm(\"Delete file: $file?\")'><img src='img/delete.png' class='icon' /></a></div>
         <BR>";
         $i++;
     ;};

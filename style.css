@@ -129,6 +129,20 @@ h1{
    
 }
 
+.show_hide{
+    cursor:pointer;
+    font-size:9px;
+    text-decoration: underline;
+}
+
+.backup_item{
+    display: inline-block;
+}
+
+.backup_item:hover{
+    background-color: #fcb63f6e;
+}
+
 
 input[type='text'].hledat-input{
     font: inherit;
@@ -269,6 +283,8 @@ table.sortable{
 }
 
 .sortable tr:nth-child(even) {background-color: white;}
+
+.sortable tr:hover {background-color: rgb(197, 194, 194);}
 
 .sortable td {padding:5px;}
 /*.sortable tr:hover td {border-color: white;}*/
