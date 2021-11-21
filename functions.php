@@ -13,14 +13,16 @@ function redirectTimer($url = null, $timeMiliSeconds = null){
 
 
 function getDbArray(){
-    if(!file("db.php")){file_put_contents("db.php", '<?php define("CONFIG_DB_ARRAY", "");?>');};
-    if(file("db.php")){require_once("db.php");};  
-    return json_decode(CONFIG_DB_ARRAY,  JSON_OBJECT_AS_ARRAY);;
+    $db = glob("db/db_*.php")[0];
+    if(!file($db)){$db = "db/db_".time().".php"; file_put_contents($db, '<?php define("CONFIG_DB_ARRAY", "");?>');};
+    if(file($db)){require_once($db);};  
+    return json_decode(CONFIG_DB_ARRAY, JSON_OBJECT_AS_ARRAY);
 ;};
 
 function saveDbArray($db_array_new){
+    foreach(glob("db/db_*.php") as $file){unlink($file);};
     $db_array_new = json_encode($db_array_new, JSON_INVALID_UTF8_IGNORE);
-    file_put_contents("db.php", '<?php define(\'CONFIG_DB_ARRAY\',\''.$db_array_new.'\');?>');
+    file_put_contents("db/db_".time().".php", '<?php define(\'CONFIG_DB_ARRAY\',\''.$db_array_new.'\');?>');
 ;};
 
 

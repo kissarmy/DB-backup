@@ -20,14 +20,14 @@ echo "<!DOCTYPE HTML>
 
 
 echo "
-        <!-- iOS as app -->
+        <!-- iOS jako aplikace -->
         <meta name='apple-mobile-web-app-title' content='DB backup'>
         <link rel='apple-touch-icon' href='img/favicon.png'>
         <link rel='apple-touch-startup-image' href='img/favicon.png'>
         <meta name='apple-mobile-web-app-capable' content='yes'>
         <meta name='apple-mobile-web-app-status-bar-style' content='default'>
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener('click',function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;'href'in d&&(d.href.indexOf('http')||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,'standalone')</script>
-        <!-- iOS as app -->
+        <!-- iOS jako aplikace -->
 ";
 
 
@@ -52,14 +52,14 @@ echo "
 
 echo "</head>
 <body>";
-if($_SESSION[$config["session_prefix"]."stav"]!=null){
-  if($_SESSION[$config["session_prefix"]."stav"][1]!=NULL){echo "<div id='stav_div' class='state_green'>".$_SESSION[$config["session_prefix"]."stav"][1]."</div>";}; // OK - zelený
-  if($_SESSION[$config["session_prefix"]."stav"][2]!=NULL){echo "<div id='stav_div' class='state_red'>".$_SESSION[$config["session_prefix"]."stav"][2]."</div>";}; // chyba - červený
-  $_SESSION[$config["session_prefix"]."stav"]=NULL;
+if($_SESSION[$config["session_prefix"]."state"]!=NULL){
+  if($_SESSION[$config["session_prefix"]."state"][1]!=NULL){echo "<div id='state_div' class='state_green'>".$_SESSION[$config["session_prefix"]."state"][1]."</div>";}; // OK - zelený
+  if($_SESSION[$config["session_prefix"]."state"][2]!=NULL){echo "<div id='state_div' class='state_red'>".$_SESSION[$config["session_prefix"]."state"][2]."</div>";}; // chyba - červený
+  $_SESSION[$config["session_prefix"]."state"]=NULL;
   echo "
   <script>
-  var skrytStav = function(){document.getElementById('stav_div').style.display='none';};
-  setTimeout(skrytStav, 2000);
+  var hideState = function(){document.getElementById('state_div').style.display='none';};
+  setTimeout(hideState, 2000);
   </script>
 ";};
 

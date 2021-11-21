@@ -17,21 +17,23 @@ if(isset($_POST["username"]) AND isset($_POST["password"])){
     // reCaptcha
 	if($_POST["g-recaptcha-response"] != NULL AND $config["recaptcha_enable"]=="1"){
 		$response_captcha=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$config["recaptcha_private_key"]."&response=".$_POST["g-recaptcha-response"]."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
-		if($response_captcha['success'] == false){$_SESSION[$config["session_prefix"]."stav"][2]="CHYBA: reCaptcha podvod"; exit(redirect("login.php"));}; // recaptcha error
+		if($response_captcha['success'] == false){$_SESSION[$config["session_prefix"]."state"][2]="ERROR: reCaptcha"; exit(redirect("login.php"));}; // recaptcha error
 	;};
 
-    if($_POST["username"]==$config["login_username"] AND $_POST["password"]==$config["login_password"]){
+    if($_POST["username"]==$config["login_username"] AND md5($_POST["password"])==$config["login_password"]){
         $_SESSION[$config["session_prefix"]."login"]="1";
         exit(redirect("./"));
     ;} else {
         unset($_SESSION[$config["session_prefix"]."login"]);
         echo "Bad username or password.<BR>";
+
         //exit(redirect("login.php"));
     ;};
 ;};
 
 //if log in ok
 if($_SESSION[$config["session_prefix"]."login"]=="1"){
+    $_SESSION[$config["session_prefix"]."state"][1]="You are logged in";
     exit(redirect("./"));
 ;};
 

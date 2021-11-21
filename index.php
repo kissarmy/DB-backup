@@ -173,7 +173,7 @@ if($_GET["form"]==NULL){
     echo "<td>
     $db[server]<BR>
     $cron_icon
-    <a href='?backup_now=$i' target='_blank' onclick='return confirm(\"Backup database: $db[db]?\")' title='Backup $db[db]'><img src='img/folder_empty.png' class='icon' /></a>
+    <a href='?backup_now=$i' onclick='return confirm(\"Backup database: $db[db]?\")' title='Backup $db[db]'><img src='img/folder_empty.png' class='icon' /></a>
     <a href='?form=edit&id=$i' title='Edit $db[db]'><img src='img/edit.png' class='icon' /></a>
     <a href='?delete=$i' onclick='return confirm(\"Delete database: $db[db]?\")' title='Delete $db[db]'><img src='img/close2.png' class='icon' /></a>
     </td>";
