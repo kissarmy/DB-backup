@@ -15,7 +15,7 @@ if(isset($_GET["logout"])){
 if(isset($_POST["username"]) AND isset($_POST["password"])){
 
     // reCaptcha
-	if($_POST["g-recaptcha-response"] != NULL AND $config["recaptcha_enable"]=="1"){
+	if($config["recaptcha_enable"]=="1"){
 		$response_captcha=json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$config["recaptcha_private_key"]."&response=".$_POST["g-recaptcha-response"]."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
 		if($response_captcha['success'] == false){$_SESSION[$config["session_prefix"]."state"][2]="ERROR: reCaptcha"; exit(redirect("login.php"));}; // recaptcha error
 	;};
