@@ -153,13 +153,18 @@ function getFileSize($soubor){
 
 function backupDbTables($host, $user, $pass, $dbname, $tables = '*') {
     global $config;
-    $link = mysqli_connect($host,$user,$pass, $dbname);
+    try {
+        $link = mysqli_connect($host, $user, $pass, $dbname);
+    ;} catch (Exception $e) {
+        $link = false;
+    ;};
 
     // Check connection
-    if (mysqli_connect_errno())
+    if (!$link)
     {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        exit;
+        echo "Failed to connect to MySQL";
+        return false;
+        //exit;
     }
 
     mysqli_query($link, "SET NAMES 'utf8'");
